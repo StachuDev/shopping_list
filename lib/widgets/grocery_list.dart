@@ -23,23 +23,40 @@ class _GroceryListState extends State<GroceryList> {
     });
   }
 
+  void _removeItem(GroceryItem item) {
+    final listIndex = groceryItemsList.indexOf(item);
+
+    setState(() {
+      groceryItemsList.remove(item);
+    });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 3),
+        content: const Text('Produkt został usunięty.'),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              groceryItemsList.insert(listIndex, item);
+            });
+          },
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Twoje zakupy: ",
+    Widget content = ListView.builder(
+      itemCount: groceryItemsList.length,
+      itemBuilder: (context, index) => Dismissible(
+        key: ValueKey(groceryItemsList[index]),
+        background: Container(
+          color: Theme.of(context).colorScheme.error.withOpacity(0.8),
         ),
-        actions: [
-          IconButton(
-            onPressed: _addItem,
-            icon: const Icon(Icons.add),
-          ),
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: groceryItemsList.length,
-        itemBuilder: (context, index) => ListTile(
+        onDismissed: (direction) => _removeItem(groceryItemsList[index]),
+        child: ListTile(
           leading: Container(
             width: 20,
             height: 20,
@@ -53,6 +70,27 @@ class _GroceryListState extends State<GroceryList> {
           ),
         ),
       ),
+    );
+
+    if (groceryItemsList.isEmpty) {
+      content = const Center(
+        child: Text('Nie zapisano żadnych produktów'),
+      );
+    }
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Twoje zakupy: ",
+        ),
+        actions: [
+          IconButton(
+            onPressed: _addItem,
+            icon: const Icon(Icons.add),
+          ),
+        ],
+      ),
+      body: content,
     );
   }
 }
