@@ -19,7 +19,15 @@ class _AddItemState extends State<AddItem> {
   var _selectedCategory = categories[Categories.vegetables]!;
 
   void _saveItem() {
-    _formKey.currentState!.validate();
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
+      final newItem = GroceryItem(
+          id: DateTime.now().toString(),
+          name: _enteredName,
+          quantity: _enteredQuantity,
+          category: _selectedCategory);
+      Navigator.of(context).pop(newItem);
+    }
   }
 
   @override
