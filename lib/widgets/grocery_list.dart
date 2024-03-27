@@ -51,7 +51,7 @@ class _GroceryListState extends State<GroceryList> {
     Widget content = ListView.builder(
       itemCount: groceryItemsList.length,
       itemBuilder: (context, index) => Dismissible(
-        key: ValueKey(groceryItemsList[index]),
+        key: ValueKey(groceryItemsList[index].id),
         background: Container(
           color: Theme.of(context).colorScheme.error.withOpacity(0.8),
         ),

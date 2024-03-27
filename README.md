@@ -1,16 +1,15 @@
-# shopping_list
+# Shopping List App
 
-A new Flutter project.
+# Description
 
-## Getting Started
+You can add your grocery to the list using form and removing it by swiping to the side.
+Every grcery have parameters such: id, name, quantity, category
 
-This project is a starting point for a Flutter application.
+# Features
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter Form widget and validation
+- Passing data between screens using pop() arguments 
+- Display content conditionaly
+- Dismissable listView.builder - removing item by swiping it to the side
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
