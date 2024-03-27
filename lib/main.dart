@@ -12,13 +12,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Artykuły spożywcze",
-      theme: ThemeData.dark().copyWith(
+      theme: ThemeData().copyWith(
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 227, 100, 20),
+          seedColor: const Color.fromARGB(255, 122, 162, 227),
           brightness: Brightness.light,
-          surface: const Color.fromARGB(255, 95, 15, 64),
+          surface: const Color.fromARGB(255, 106, 212, 221),
         ),
-        scaffoldBackgroundColor: const Color.fromARGB(255, 251, 139, 36),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 248, 246, 227),
       ),
       home: const GroceryList(),
     );
