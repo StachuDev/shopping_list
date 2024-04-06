@@ -5,7 +5,7 @@ This application was created on the basis of an Udemy tutorial: https://www.udem
 ## Description
 
 You can add your grocery to the list using form and removing it by swiping to the side.
-Every grcery have parameters such: id, name, quantity, category
+Every grocery have parameters such: id, name, quantity, category
 
 ## Main Features
 
