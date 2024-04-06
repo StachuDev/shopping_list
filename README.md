@@ -19,5 +19,8 @@ Every grcery have parameters such: id, name, quantity, category
 
 ## Presentation
 
+https://github.com/StachuDev/shopping_list/assets/126360195/c683f8ae-db83-47d6-93d8-a4bb9272e0e3
+
+
 
 
